@@ -29,7 +29,7 @@ jobs:
           verify_dependencies: false
           steps:
             - run:
-                command: mvn  -e -U clean compile install -T1C -DskipTests -DskipITs -Pbuild-assemblies
+                command: mvn  -e -U clean compile install -T1C -DskipTests -DskipITs
   maven_test:
     docker:
       - image: cimg/openjdk:11.0
@@ -38,7 +38,7 @@ jobs:
           verify_dependencies: false
           steps:
             - run:
-                command: mvn -e -U jacoco:prepare-agent@PrepareAgent surefire:test jacoco:report@ReportSmallTests -Pbuild-assemblies
+                command: mvn -e -U jacoco:prepare-agent@PrepareAgent surefire:test jacoco:report@ReportSmallTests
       - run:
           name: Save test results
           command: |
